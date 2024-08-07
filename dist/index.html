@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List WebApp</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="icon" href="./images/check_logo.png" type="icon">
+    <script defer src="main.js"></script>
+</head>
+<body>
+    <header class="logoArea">
+        <div class="hiddenMenu">
+            <span class="material-icons-round">menu</span>
+        </div>
+        <div class="logoLeft">
+            <img src="./images/check_logo.png" alt="check logo">
+            <div class="logoText">
+                <span>What</span>
+                "ToDo"
+            </div>
+        </div>
+        <div class="theme">
+            <input type="checkbox" class="checkbox" id="checkbox" checked>
+            <label for="checkbox" class="label">
+                <img class="sun" src="images/sun.png" alt="sun">
+                <span class="material-icons-round moon">dark_mode</span>
+                <div class="ball"></div>
+            </label>
+        </div>
+    </header>
+    <div class="content" id="content">
+        <div class="leftPanel">
+            <button class="add-todo-button">
+                <span class="material-icons-round">add_circle_outlined</span>
+                Add New Project
+            </button>
+            <div id="add-todo-form" style="display:none">
+                <form id="add-todo" class="hidden">
+                    <label for="Project">Project:</label>
+                    <select name="Project" id="Project">
+                        <option value="DefaultProject">Default Project</option>
+                        <option value="Create-New-Project">Create New Project</option>
+                    </select>
+                    <label for="Title">Title:</label>
+                    <input type="text" id="Title" name="Title" placeholder="Required Field" required>
+                    <label for="Description">Description:</label>
+                    <input type="text" id="Description" name="Description" placeholder="Required Field" required>
+                    <label for="DueDate">Due Date:</label>
+                    <input type="date" id="DueDate" name="DueDate" placeholder="Required Field" required>
+                    <label for="Priority">Priority:</label>
+                    <select name="Priority" id="Priority">
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                    <label for="CheckList">CheckList Items Added (if any):</label>
+                    <ul class="todo-ul"></ul>
+                </form>
+                <input type="text" id="add-to-checklist" name="add-to-checklist" placeholder="Type checklst item here">
+                <button class="add-to-checklist">Add Items to Checklist</button>
+                <br>
+                <div class="form-buttons" id="form-buttons">
+                    <button type="submit" class="submit-button" id="submit-button">Submit ToDo</button>
+                    <button type="reset" class="reset-button">Reset Form</button>
+                    <button type="button" class="cancel-button" id="cancel-button">Cancel</button>
+                </div>
+            </div>
+        </div>
+        <div class="projects">
+        </div>
+    </div>
+    <footer class="footer">
+        <p>Copyright © 2024 razvanmanea</p>
+    </footer>
+</body>
+</html>
