@@ -365,7 +365,7 @@ p.check-list-label {
 
 #add-todo input,
 #add-todo select {
-  width: 95%;
+  width: 90%;
   padding: 6px;
   border: 1px solid var(--accent);
   border-radius: 4px;
