@@ -498,7 +498,7 @@ li:hover {
   margin-top: 10px;
   background-color: var(--accent);
   color: var(--bgColor1);
-  font-weight: 200;
+  font-weight: 100;
 }
 
 .add-to-checklist:hover {
