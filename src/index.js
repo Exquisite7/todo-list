@@ -1,7 +1,14 @@
-import { createToDo } from './create-to-do';
-import { projectLoad } from './project';
-import { displayDefaultProject, displayTheForm, addItemToCheckList, clearForm, displayToDo, hideForm } from './dom';
-import './style.css'; 
+import { createToDo } from "./create-to-do";
+import { projectLoad } from "./project";
+import {
+  displayDefaultProject,
+  displayTheForm,
+  addItemToCheckList,
+  clearForm,
+  displayToDo,
+  hideForm,
+} from "./dom";
+import "./style.css";
 
 // Call project on first land
 projectLoad();
@@ -13,45 +20,43 @@ projectLoad();
 displayToDo();
 
 // Click events module
-let clickEventsModule = (function() {
+let clickEventsModule = (function () {
+  // Click event for displaying the form
+  const addNewToDo = document.querySelector(".add-todo-button");
+  addNewToDo.addEventListener("click", displayTheForm);
 
-    // Click event for displaying the form
-    const addNewToDo = document.querySelector(".add-todo-button");
-    addNewToDo.addEventListener("click", displayTheForm);
+  // Click event for adding an item to the checklist on the form
+  const addToChecklist = document.querySelector(".add-to-checklist");
+  addToChecklist.addEventListener("click", addItemToCheckList);
 
-    // Click event for adding an item to the checklist on the form
-    const addToChecklist = document.querySelector(".add-to-checklist");
-    addToChecklist.addEventListener("click", addItemToCheckList);
+  // Click event to clear the form
+  const clearButton = document.querySelector(".reset-button");
+  clearButton.addEventListener("click", clearForm);
 
-    // Click event to clear the form
-    const clearButton = document.querySelector(".reset-button");
-    clearButton.addEventListener("click", clearForm);
+  // Click event to submit a new todo form to project
+  const submitButton = document.querySelector(".submit-button");
+  submitButton.addEventListener("click", createToDo);
 
-    // Click event to submit a new todo form to project
-    const submitButton = document.querySelector(".submit-button");
-    submitButton.addEventListener("click", createToDo);
+  // Click event to cancel the form and hide it
 
-    // Click event to cancel the form and hide it
-
-    const cancelButton = document.querySelector(".cancel-button");
-    cancelButton.addEventListener("click", hideForm);
-
+  const cancelButton = document.querySelector(".cancel-button");
+  cancelButton.addEventListener("click", hideForm);
 })();
 
 document.addEventListener("DOMContentLoaded", () => {
-    const checkbox = document.getElementById("checkbox");
+  const checkbox = document.getElementById("checkbox");
 
-    // Set the initial theme based on the checkbox state
-    if (checkbox.checked) {
-        document.body.classList.add("light");
-    } else {
-        document.body.classList.remove("light");
-    }
+  // Set the initial theme based on the checkbox state
+  if (checkbox.checked) {
+    document.body.classList.add("light");
+  } else {
+    document.body.classList.remove("light");
+  }
 
-    // Event listener for when the dark mode toggle changes
-    checkbox.addEventListener("change", () => {
-        document.body.classList.toggle("light");
-    });
+  // Event listener for when the dark mode toggle changes
+  checkbox.addEventListener("change", () => {
+    document.body.classList.toggle("light");
+  });
 });
 
 

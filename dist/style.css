@@ -1,5 +1,5 @@
 :root {
-  font-family: 'Alata', sans-serif;
+  font-family: "Alata", sans-serif;
   font-size: 16px;
 
   --bgColor1: #15202b;
@@ -21,7 +21,7 @@ html {
 body {
   background-color: var(--bgColor2);
   color: var(--textColor);
-  font-family: 'Alata';
+  font-family: "Alata";
   margin: 0;
   padding: 0;
   display: flex;
@@ -30,9 +30,9 @@ body {
 }
 
 body.light {
-  --bgColor2:#ececec;
+  --bgColor2: #ececec;
   --bgColor3: #f2f3f5;
-  --bgColor1:#fefcfe;
+  --bgColor1: #fefcfe;
   --bgColorPopUp: #f3f1f3;
   --textColor: #374958;
   --accentDark: #2abd67;
@@ -55,8 +55,8 @@ body.light {
   display: flex;
   align-items: center;
   cursor: pointer;
-      
-  padding:10px;
+
+  padding: 10px;
   border-radius: 4px;
 }
 
@@ -64,7 +64,7 @@ body.light {
   transform: scale(0.9);
 }
 
-.hiddenMenu .material-icons-round{
+.hiddenMenu .material-icons-round {
   color: var(--textColor);
   transform: scale(1.3);
 
@@ -91,7 +91,7 @@ body.light {
   color: var(--textColor);
 }
 
-.theme{
+.theme {
   margin-right: 0px;
   user-select: none;
 }
@@ -101,13 +101,13 @@ body.light {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding:10px;
+  padding: 10px;
   border-radius: 50px;
-  height:40px;
+  height: 40px;
   width: 80px;
   box-sizing: border-box;
   position: relative;
-  transform:scale(0.8);
+  transform: scale(0.8);
   transition: background-color 0.2s ease-in;
   border: solid 3px var(--accentDark);
   cursor: pointer;
@@ -120,29 +120,29 @@ body.light {
 
 .sun {
   transform: scale(1.3);
-  width:24.7px;
+  width: 24.7px;
 }
 
 .moon {
-  color:rgb(86, 152, 163);
+  color: rgb(86, 152, 163);
   transform: scale(1.3);
 }
 
 .ball {
   position: absolute;
-  width:25px;
-  height:25px;
+  width: 25px;
+  height: 25px;
   left: 3px;
   background-color: var(--accentDark);
-  border:solid 4px var(--bgColor1);
+  border: solid 4px var(--bgColor1);
   border-radius: 50%;
   transition: transform 0.2s linear;
 }
 
-.checkbox:checked + .label .ball {            
+.checkbox:checked + .label .ball {
   transform: translate(37px);
   background-color: var(--accentDark);
-  border:solid 4px var(--bgColor3);
+  border: solid 4px var(--bgColor3);
 }
 
 .checkbox:checked + label {
@@ -150,7 +150,7 @@ body.light {
 }
 
 .content {
-  display:flex;
+  display: flex;
   flex-direction: row;
   box-sizing: border-box;
   height: 100%;
@@ -161,143 +161,360 @@ body.light {
   background-color: var(--bgColor1);
   display: flex;
   flex-direction: column;
-  color:var(--textColor);
-  padding:20px;
+  color: var(--textColor);
+  padding: 20px;
   width: 350px;
   user-select: none;
-  height: 100%;
+  height: 100vh; /* Set to full viewport height */
+  overflow: hidden; /* Hide overflow */
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.leftPanel h2{
+.leftPanel-content {
+  flex-grow: 1;
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding-right: 10px; /* Add some padding for the scrollbar */
+}
+
+.leftPanel-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.leftPanel-content::-webkit-scrollbar-track {
+  background: var(--bgColor2);
+}
+
+.leftPanel-content::-webkit-scrollbar-thumb {
+  background-color: rgb(202, 202, 202);
+  border-radius: 4px;
+}
+
+
+.leftPanel h2 {
   margin-top: 0;
-  padding-bottom:5px;
+  padding-bottom: 5px;
   border-bottom: solid 2px var(--textColor);
 }
 
-.leftPanel .material-icons-round{
+.leftPanel .material-icons-round {
   margin-right: 5px;
-  margin-left:10px;
+  margin-left: 10px;
 }
 
-.leftPanel img{
+.leftPanel img {
   width: 27px;
   height: 27px;
   margin-right: 5px;
-  margin-left:10px;
+  margin-left: 10px;
 }
 
-.projects .card {
-  background-color: var(--bgColor2);
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 15px;
+  max-height: 600px;
+}
+
+.card {
+  background-color: var(--bgColor1);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  width: calc(25% - 15px); /* Reduced width and adjusted for gap */
+  min-width: 200px; /* Reduced minimum width */
+  max-width: 300px; /* Added maximum width */
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+  color: var(--accent);
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.card p {
+  color: var(--textColor);
+  margin-bottom: 8px;
+  font-size: 1.2rem; /* Reduced font size */
+}
+
+.card .due-date {
+  font-style: italic;
+  color: var(--textColor);
+  opacity: 0.8;
+}
+
+.card .priority {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.card .priority-low {
+  background-color: #4caf50;
+  color: white;
+}
+
+.card .priority-medium {
+  background-color: #ff9800;
+  color: white;
+}
+
+.card .priority-high {
+  background-color: #f44336;
+  color: white;
+}
+
+.card .checklist {
+  margin-top: 15px;
+}
+
+.card .checklist-item {
   display: flex;
   align-items: center;
-  flex-direction: column;
-  padding: 30px 50px;
-  flex: 1;
-  min-height: 40vh;
-  box-sizing: border-box;
+  margin-bottom: 5px;
+}
+
+.card .checklist-item input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.card .remove-todo-button {
+  margin-top: 15px;
+  width: 100%;
+}
+
+p.check-list-label {
+  font-size: 1.1rem;
+  margin: 0;
+  padding: 5px 0;
+  width: 100px;
+  max-height: 50px;
 }
 
 .add-todo-button {
-  font-family: 'Alata', sans-serif;
+  font-family: "Alata", sans-serif;
   font-size: 1.125rem;
   display: flex;
-  background: transparent;
-  align-items: flex-start;
-  margin: 3px 0;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 10px 0;
   height: auto;
-  border-radius: 4px;
-  border: solid 2px transparent;
-  padding: 5px;
+  border-radius: 8px;
+  border: solid 2px var(--accent);
+  padding: 10px 15px;
   box-sizing: border-box;
   cursor: pointer;
-  width: 300px;
+  width: 100%;
+  transition: background-color 0.3s ease;
 }
 
-.leftPanel .material-icons-round{
+.add-todo-button:hover {
+  background-color: var(--accent);
+  color: var(--bgColor1);
+}
+
+.add-todo-button .material-icons-round {
+  margin-right: 10px;
+}
+
+#add-todo-form {
+  background-color: var(--bgColor3);
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 15px;
+  max-height: 80vh; /* Limit the height to 70% of the viewport height */
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds max-height */
+}
+
+.leftPanel .material-icons-round {
   margin-right: 5px;
   margin-left: 10px;
 }
 
 #add-todo {
   display: grid;
-  grid-template-columns: .1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 10px;
-  margin: 50px 50px 25px 50px;
-  align-items: center;
-  justify-content: center;
+  margin: 0 0 15px 0;
 }
 
+#add-todo label {
+  font-weight: bold;
+  margin-bottom: 2px;
+  font-size: 1rem;
+}
+
+#add-todo label[for="CheckList"] {
+  margin-top: 20px;
+  font-weight: bold;
+  display: block;
+}
+
+#add-todo input,
+#add-todo select {
+  width: 95%;
+  padding: 6px;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  background-color: var(--bgColor2);
+  color: var(--textColor);
+  font-size: 0.9rem;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.form-buttons button {
+  flex: 1;
+  margin: 0 5px;
+}
+
+.submit-button {
+  background-color: var(--accent);
+  color: var(--bgColor1);
+}
+
+.reset-button,
+.cancel-button {
+  background-color: var(--bgColor2);
+}
+
+.submit-button:hover {
+  background-color: var(--accentDark);
+}
+
+.reset-button:hover,
+.cancel-button:hover {
+  opacity: 0.8;
+}
+
+
 .todo-ul {
-  display: grid;
-  grid-template-columns: 1fr;
-  padding: 0px;
+  max-height: 150px; /* Limit the height of the checklist */
+  overflow-y: auto; /* Enable scrolling for long checklists */
+  padding: 0;
+  margin: 10px 0;
 }
 
 button {
-  font-family: 'Alata', sans-serif;
-  margin: 3px 0;
-  font-size: 1.125rem;
+  font-family: "Alata", sans-serif;
+  font-size: 1rem;
   color: var(--textColor);
-  background: transparent;
-  padding: 5px;
-  display: flex;
-  align-items: flex-start;
-  border-radius: 4px;
-  border: solid 2px transparent;
+  background-color: var(--bgColor3);
+  padding: 10px 15px;
+  margin: 5px 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border: none;
   cursor: pointer;
-  box-sizing: border-box;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-button:hover, 
+button:hover,
 input[type="button"]:hover,
-input[type="submit"]:hover{
-    opacity: 0.9;
+input[type="submit"]:hover {
+  opacity: 0.9;
 }
 
 button:hover {
   background-color: var(--bgColor2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 li {
   display: flex;
-  align-items: flex-start;
-  height: 25px;
-  padding-left: 0px;
+  align-items: center;
+  padding: 6px 8px;
+  background-color: var(--bgColor2);
+  border-radius: 6px;
+  border: 1px solid var(--bgColor3);
+  transition: all 0.2s ease;
   margin-bottom: 10px;
-  border: solid 1.5px var(--textColor);
-  width: 200px;
-  
+}
+
+li:hover {
+  background-color: var(--bgColor3);
 }
 
 .remove-checklist-item {
-  justify-self: right;
+  background-color: transparent;
+  color: var(--textColor);
+  border: none;
+  padding: 4px;
+  font-size: 1.2rem;
   cursor: pointer;
-} 
-
-#add-to-checklist {
-  margin-bottom: 20px;
-  padding-left: 20px;
-  margin-left: 7px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
 }
 
-.submit-button, .reset-button {
+.remove-checklist-item:hover {
+  opacity: 1;
+}
+
+#add-to-checklist {
+  width: calc(100% - 20px);
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  background-color: var(--bgColor2);
+  color: var(--textColor);
+}
+
+.submit-button,
+.reset-button {
   border-radius: 10px;
   padding: 5px;
   box-shadow: 2px 2px 2px black;
 }
 
 .add-to-checklist {
-  border-radius: 10px;
-  box-shadow: 2px 2px 2px black;
+  width: 100%;
+  margin-top: 10px;
+  background-color: var(--accent);
+  color: var(--bgColor1);
+  font-weight: 200;
+}
+
+.add-to-checklist:hover {
+  background-color: var(--accentDark);
 }
 
 .check-list-label {
-  text-align: left;
+  flex-grow: 1;
+  margin-right: 10px;
+  cursor: pointer;
 }
 
 .done {
   text-decoration: line-through;
-  color: gray;
+  color: var(--textColor);
+  opacity: 0.6;
 }
 
 .display-li {
@@ -316,7 +533,6 @@ li {
   border: solid 1.5px var(--textColor);
   text-align: left;
   transition: transform 100ms ease-in-out;
-  
 }
 
 .remove-todo-button {
@@ -328,15 +544,15 @@ li {
   box-sizing: border-box;
   padding: 10px;
   margin: 10px;
-  max-width: auto;
-  max-height: auto;
-  margin: auto;
+  height: auto;
   cursor: pointer;
 }
 
 .remove-todo-button:hover {
   background-color: var(--bgColor1);
   opacity: 0.9;
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 .cancel-button {
@@ -353,17 +569,14 @@ p {
 }
 
 ul {
-  padding: 0;
+  padding: auto;
+  width: 200px;
 }
 
 .form-buttons {
   display: flex;
   justify-content: space-between;
   max-width: 300px;
-}
-
-.projects {
-  display: flex;
 }
 
 .footer {
