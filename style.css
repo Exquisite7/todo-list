@@ -180,6 +180,10 @@ body.light {
   width: 8px;
 }
 
+ul::-webkit-scrollbar {
+  width: 8px;
+}
+
 .leftPanel-content::-webkit-scrollbar-track {
   background: var(--bgColor2);
 }
