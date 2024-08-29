@@ -1,0 +1,380 @@
+:root {
+  font-family: 'Alata', sans-serif;
+  font-size: 16px;
+
+  --bgColor1: #15202b;
+  --bgColor2: #192734;
+  --bgColor3: #22303c;
+  --bgColorPopUp: #273746;
+  --textColor: #eaebec;
+  --accent: #2abd67;
+  --accentDark: #1f8d4d;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bgColor2);
+  color: var(--textColor);
+  font-family: 'Alata';
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+body.light {
+  --bgColor2:#ececec;
+  --bgColor3: #f2f3f5;
+  --bgColor1:#fefcfe;
+  --bgColorPopUp: #f3f1f3;
+  --textColor: #374958;
+  --accentDark: #2abd67;
+  height: 100%;
+}
+
+.logoArea {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bgColor3);
+  font-size: 2.5rem;
+  padding: 10px 20px;
+  font-weight: 900;
+  border-bottom: solid 2px var(--accentDark);
+}
+
+.hiddenMenu {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+      
+  padding:10px;
+  border-radius: 4px;
+}
+
+.hiddenMenu:active {
+  transform: scale(0.9);
+}
+
+.hiddenMenu .material-icons-round{
+  color: var(--textColor);
+  transform: scale(1.3);
+
+  pointer-events: none;
+}
+
+.hiddenMenu:hover {
+  background-color: rgba(128, 128, 128, 0.267);
+}
+
+.logoLeft {
+  display: flex;
+  align-items: center;
+  color: var(--accent);
+}
+
+.logoLeft img {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding-right: 5px;
+}
+
+.logoLeft span {
+  color: var(--textColor);
+}
+
+.theme{
+  margin-right: 0px;
+  user-select: none;
+}
+
+.label {
+  background-color: var(--bgColor1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:10px;
+  border-radius: 50px;
+  height:40px;
+  width: 80px;
+  box-sizing: border-box;
+  position: relative;
+  transform:scale(0.8);
+  transition: background-color 0.2s ease-in;
+  border: solid 3px var(--accentDark);
+  cursor: pointer;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.sun {
+  transform: scale(1.3);
+  width:24.7px;
+}
+
+.moon {
+  color:rgb(86, 152, 163);
+  transform: scale(1.3);
+}
+
+.ball {
+  position: absolute;
+  width:25px;
+  height:25px;
+  left: 3px;
+  background-color: var(--accentDark);
+  border:solid 4px var(--bgColor1);
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball {            
+  transform: translate(37px);
+  background-color: var(--accentDark);
+  border:solid 4px var(--bgColor3);
+}
+
+.checkbox:checked + label {
+  background-color: var(--bgColor3);
+}
+
+.content {
+  display:flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.leftPanel {
+  box-sizing: border-box;
+  background-color: var(--bgColor1);
+  display: flex;
+  flex-direction: column;
+  color:var(--textColor);
+  padding:20px;
+  width: 350px;
+  user-select: none;
+  height: 100%;
+}
+
+.leftPanel h2{
+  margin-top: 0;
+  padding-bottom:5px;
+  border-bottom: solid 2px var(--textColor);
+}
+
+.leftPanel .material-icons-round{
+  margin-right: 5px;
+  margin-left:10px;
+}
+
+.leftPanel img{
+  width: 27px;
+  height: 27px;
+  margin-right: 5px;
+  margin-left:10px;
+}
+
+.projects .card {
+  background-color: var(--bgColor2);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px 50px;
+  flex: 1;
+  min-height: 40vh;
+  box-sizing: border-box;
+}
+
+.add-todo-button {
+  font-family: 'Alata', sans-serif;
+  font-size: 1.125rem;
+  display: flex;
+  background: transparent;
+  align-items: flex-start;
+  margin: 3px 0;
+  height: auto;
+  border-radius: 4px;
+  border: solid 2px transparent;
+  padding: 5px;
+  box-sizing: border-box;
+  cursor: pointer;
+  width: 300px;
+}
+
+.leftPanel .material-icons-round{
+  margin-right: 5px;
+  margin-left: 10px;
+}
+
+#add-todo {
+  display: grid;
+  grid-template-columns: .1fr 1fr;
+  gap: 10px;
+  margin: 50px 50px 25px 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+.todo-ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 0px;
+}
+
+button {
+  font-family: 'Alata', sans-serif;
+  margin: 3px 0;
+  font-size: 1.125rem;
+  color: var(--textColor);
+  background: transparent;
+  padding: 5px;
+  display: flex;
+  align-items: flex-start;
+  border-radius: 4px;
+  border: solid 2px transparent;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+button:hover, 
+input[type="button"]:hover,
+input[type="submit"]:hover{
+    opacity: 0.9;
+}
+
+button:hover {
+  background-color: var(--bgColor2);
+}
+
+li {
+  display: flex;
+  align-items: flex-start;
+  height: 25px;
+  padding-left: 0px;
+  margin-bottom: 10px;
+  border: solid 1.5px var(--textColor);
+  width: 200px;
+  
+}
+
+.remove-checklist-item {
+  justify-self: right;
+  cursor: pointer;
+} 
+
+#add-to-checklist {
+  margin-bottom: 20px;
+  padding-left: 20px;
+  margin-left: 7px;
+}
+
+.submit-button, .reset-button {
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 2px 2px 2px black;
+}
+
+.add-to-checklist {
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px black;
+}
+
+.check-list-label {
+  text-align: left;
+}
+
+.done {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.display-li {
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  height: 30px;
+  font-size: 1.125rem;
+  color: var(--textColor);
+  background: transparent;
+  border-radius: 4px;
+  box-sizing: border-box;
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 5px;
+  border: solid 1.5px var(--textColor);
+  text-align: left;
+  transition: transform 100ms ease-in-out;
+  
+}
+
+.remove-todo-button {
+  font-weight: 300;
+  background-color: transparent;
+  color: var(--textColor);
+  border-radius: 4px;
+  border: solid 2px;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 10px;
+  max-width: auto;
+  max-height: auto;
+  margin: auto;
+  cursor: pointer;
+}
+
+.remove-todo-button:hover {
+  background-color: var(--bgColor1);
+  opacity: 0.9;
+}
+
+.cancel-button {
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 2px 2px 2px black;
+}
+
+p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  padding: 0;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  max-width: 300px;
+}
+
+.projects {
+  display: flex;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  border-top: 1px solid var(--bgColor1);
+  background-color: var(--bgColor3);
+  color: var(--textColor);
+  height: 35px;
+}
