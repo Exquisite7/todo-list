@@ -211,9 +211,10 @@ body.light {
 .projects {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 15px;
   padding: 15px;
-  max-height: 600px;
+  overflow-y: auto;
+  height: calc(100vh - 100px); /* Adjust based on your header and footer height */
 }
 
 .card {
@@ -221,13 +222,16 @@ body.light {
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 15px;
-  width: calc(25% - 15px); /* Reduced width and adjusted for gap */
+  width: calc(33.333% - 15px); /* Reduced width and adjusted for gap */
   min-width: 200px; /* Reduced minimum width */
   max-width: 300px; /* Added maximum width */
   transition: all 0.3s ease;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 300px; /* Set a fixed height */
+  gap: 2px;
 }
-
 
 .card:hover {
   transform: translateY(-5px);
@@ -237,71 +241,61 @@ body.light {
 .card h3 {
   color: var(--accent);
   margin-top: 0;
-  margin-bottom: 15px;
-  font-size: 1.2rem;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
 }
 
 .card p {
   color: var(--textColor);
-  margin-bottom: 8px;
-  font-size: 1.2rem; /* Reduced font size */
+  margin-bottom: 5px;
+  font-size: 0.9rem;
 }
 
 .card .due-date {
   font-style: italic;
   color: var(--textColor);
   opacity: 0.8;
+  font-size: 0.8rem;
 }
 
 .card .priority {
   display: inline-block;
-  padding: 3px 8px;
-  border-radius: 12px;
-  font-size: 0.9rem;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 0.75rem;
   font-weight: bold;
-  margin-top: 10px;
-}
-
-.card .priority-low {
-  background-color: #4caf50;
-  color: white;
-}
-
-.card .priority-medium {
-  background-color: #ff9800;
-  color: white;
-}
-
-.card .priority-high {
-  background-color: #f44336;
-  color: white;
+  margin-top: 5px;
 }
 
 .card .checklist {
-  margin-top: 15px;
+  margin-top: 10px;
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: 100px; /* Limit the height of the checklist */
 }
 
 .card .checklist-item {
   display: flex;
   align-items: center;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
+  font-size: 0.85rem;
 }
 
 .card .checklist-item input[type="checkbox"] {
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .card .remove-todo-button {
-  margin-top: 15px;
+  margin-top: 10px;
   width: 100%;
+  font-size: 0.9rem;
+  padding: 5px 10px;
 }
 
 p.check-list-label {
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   margin: 0;
   padding: 5px 0;
-  width: 100px;
-  max-height: 50px;
 }
 
 .add-todo-button {
@@ -333,45 +327,79 @@ p.check-list-label {
 #add-todo-form {
   background-color: var(--bgColor3);
   border-radius: 8px;
-  padding: 15px;
+  padding: 20px;
   margin-top: 15px;
-  max-height: 80vh; /* Limit the height to 70% of the viewport height */
+  max-height: 80vh; /* Limit the height to 80% of the viewport height */
   overflow-y: auto; /* Enable vertical scrolling if content exceeds max-height */
 }
 
-.leftPanel .material-icons-round {
-  margin-right: 5px;
-  margin-left: 10px;
-}
-
 #add-todo {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
   margin: 0 0 15px 0;
 }
 
-#add-todo label {
-  font-weight: bold;
-  margin-bottom: 2px;
-  font-size: 1rem;
+fieldset {
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  padding: 15px;
+  margin: 0;
 }
 
-#add-todo label[for="CheckList"] {
-  margin-top: 20px;
+legend {
+  color: var(--accent);
   font-weight: bold;
+  padding: 0 5px;
+}
+
+#add-todo label {
   display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
 }
 
 #add-todo input,
 #add-todo select {
-  width: 95%;
-  padding: 6px;
+  width: 100%;
+  padding: 8px;
   border: 1px solid var(--accent);
   border-radius: 4px;
   background-color: var(--bgColor2);
   color: var(--textColor);
   font-size: 0.9rem;
+}
+
+.checklist-input {
+  display: flex;
+  gap: 10px;
+}
+
+.checklist-input input {
+  flex-grow: 1;
+}
+
+.checklist-input button {
+  flex-shrink: 0;
+}
+
+.todo-ul {
+  max-height: 150px; /* Limit the height of the checklist */
+  overflow-y: auto; /* Enable scrolling for long checklists */
+  padding: 0;
+  margin: 10px 0;
+  list-style-type: none;
+}
+
+.todo-ul li {
+  background-color: var(--bgColor2);
+  padding: 8px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .form-buttons {
@@ -381,8 +409,12 @@ p.check-list-label {
 }
 
 .form-buttons button {
-  flex: 1;
-  margin: 0 5px;
+  padding: 10px 15px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .submit-button {
@@ -393,23 +425,13 @@ p.check-list-label {
 .reset-button,
 .cancel-button {
   background-color: var(--bgColor2);
+  color: var(--textColor);
 }
 
-.submit-button:hover {
-  background-color: var(--accentDark);
-}
-
+.submit-button:hover,
 .reset-button:hover,
 .cancel-button:hover {
-  opacity: 0.8;
-}
-
-
-.todo-ul {
-  max-height: 150px; /* Limit the height of the checklist */
-  overflow-y: auto; /* Enable scrolling for long checklists */
-  padding: 0;
-  margin: 10px 0;
+  opacity: 0.9;
 }
 
 button {
@@ -477,32 +499,15 @@ li:hover {
 }
 
 #add-to-checklist {
-  width: calc(100% - 20px);
-  padding: 8px;
-  margin: 10px 0;
-  border: 1px solid var(--accent);
-  border-radius: 4px;
-  background-color: var(--bgColor2);
-  color: var(--textColor);
-}
-
-.submit-button,
-.reset-button {
-  border-radius: 10px;
-  padding: 5px;
-  box-shadow: 2px 2px 2px black;
+  width: calc(100% - 12px);
+  padding: 6px;
+  margin: 5px 0;
+  font-size: 0.9rem;
 }
 
 .add-to-checklist {
-  width: 100%;
-  margin-top: 10px;
-  background-color: var(--accent);
-  color: var(--bgColor1);
-  font-weight: 200;
-}
-
-.add-to-checklist:hover {
-  background-color: var(--accentDark);
+  padding: 8px;
+  font-size: 0.9rem;
 }
 
 .check-list-label {
@@ -540,12 +545,13 @@ li:hover {
   background-color: transparent;
   color: var(--textColor);
   border-radius: 4px;
-  border: solid 2px;
+  border: solid 1px var(--textColor);
   box-sizing: border-box;
-  padding: 10px;
-  margin: 10px;
-  height: auto;
+  padding: 5px 10px;
+  margin: 5px 0;
   cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
 }
 
 .remove-todo-button:hover {
