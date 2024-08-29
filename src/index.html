@@ -43,7 +43,7 @@
           <span class="material-icons-round">add_circle_outlined</span>
           Add New Project
         </button>
-        <div id="add-todo-form" style="display: none">
+        <div class="leftPanel-content" id="add-todo-form" style="display: none">
           <form id="add-todo" class="hidden">
             <label for="Project">Project:</label>
             <select name="Project" id="Project">
@@ -80,16 +80,16 @@
               <option value="Medium">Medium</option>
               <option value="High">High</option>
             </select>
-            <label for="CheckList">CheckList Items Added (if any):</label>
+            <label for="CheckList">Tasks Added (if any):</label>
             <ul class="todo-ul"></ul>
           </form>
           <input
             type="text"
             id="add-to-checklist"
             name="add-to-checklist"
-            placeholder="Type checklst item here"
+            placeholder="Type tasks here"
           />
-          <button class="add-to-checklist">Add Items to Checklist</button>
+          <button class="add-to-checklist">Add Tasks to your Project</button>
           <br />
           <div class="form-buttons" id="form-buttons">
             <button type="submit" class="submit-button" id="submit-button">

@@ -165,9 +165,30 @@ body.light {
   padding: 20px;
   width: 350px;
   user-select: none;
-  height: 100%;
+  height: 100vh; /* Set to full viewport height */
+  overflow: hidden; /* Hide overflow */
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
 }
+
+.leftPanel-content {
+  flex-grow: 1;
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding-right: 10px; /* Add some padding for the scrollbar */
+}
+
+.leftPanel-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.leftPanel-content::-webkit-scrollbar-track {
+  background: var(--bgColor2);
+}
+
+.leftPanel-content::-webkit-scrollbar-thumb {
+  background-color: rgb(202, 202, 202);
+  border-radius: 4px;
+}
+
 
 .leftPanel h2 {
   margin-top: 0;
@@ -312,8 +333,10 @@ p.check-list-label {
 #add-todo-form {
   background-color: var(--bgColor3);
   border-radius: 8px;
-  padding: 20px;
-  margin-top: 20px;
+  padding: 15px;
+  margin-top: 15px;
+  max-height: 80vh; /* Limit the height to 70% of the viewport height */
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds max-height */
 }
 
 .leftPanel .material-icons-round {
@@ -324,13 +347,14 @@ p.check-list-label {
 #add-todo {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 15px;
-  margin: 0 0 20px 0;
+  gap: 10px;
+  margin: 0 0 15px 0;
 }
 
 #add-todo label {
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
+  font-size: 1rem;
 }
 
 #add-todo label[for="CheckList"] {
@@ -341,12 +365,13 @@ p.check-list-label {
 
 #add-todo input,
 #add-todo select {
-  width: 100%;
-  padding: 8px;
+  width: 95%;
+  padding: 6px;
   border: 1px solid var(--accent);
   border-radius: 4px;
   background-color: var(--bgColor2);
   color: var(--textColor);
+  font-size: 0.9rem;
 }
 
 .form-buttons {
@@ -370,7 +395,10 @@ p.check-list-label {
   background-color: var(--bgColor2);
 }
 
-.submit-button:hover,
+.submit-button:hover {
+  background-color: var(--accentDark);
+}
+
 .reset-button:hover,
 .cancel-button:hover {
   opacity: 0.8;
@@ -378,11 +406,10 @@ p.check-list-label {
 
 
 .todo-ul {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
+  max-height: 150px; /* Limit the height of the checklist */
+  overflow-y: auto; /* Enable scrolling for long checklists */
   padding: 0;
-  margin: 15px 0;
+  margin: 10px 0;
 }
 
 button {
@@ -422,11 +449,12 @@ button:active {
 li {
   display: flex;
   align-items: center;
-  padding: 8px 12px;
+  padding: 6px 8px;
   background-color: var(--bgColor2);
   border-radius: 6px;
   border: 1px solid var(--bgColor3);
   transition: all 0.2s ease;
+  margin-bottom: 10px;
 }
 
 li:hover {
@@ -450,7 +478,7 @@ li:hover {
 
 #add-to-checklist {
   width: calc(100% - 20px);
-  padding: 8px 10px;
+  padding: 8px;
   margin: 10px 0;
   border: 1px solid var(--accent);
   border-radius: 4px;
@@ -470,7 +498,7 @@ li:hover {
   margin-top: 10px;
   background-color: var(--accent);
   color: var(--bgColor1);
-  font-weight: bold;
+  font-weight: 200;
 }
 
 .add-to-checklist:hover {
